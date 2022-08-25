@@ -1,5 +1,0 @@
-#ifndef TEMPERATURE_TASK_HPP
-#define TEMPERATURE_TASK_HPP
-
-
-#endif

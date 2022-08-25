@@ -1,7 +1,7 @@
 #ifndef TASK_HPP
 #define TASK_HPP
 
-#include <FreeRTOS.h>
+#include "freertos/FreeRTOS.h"
 #include <cstdint>
 
 namespace Fish {
@@ -18,7 +18,12 @@ namespace Fish {
 
         //Execution of task
         virtual void start() = 0; 
-    }
+        
+    protected:
+        const char *myName;
+        const int myPriority;
+        const uint32_t myStackSize;
+    };
 }
 
 #endif

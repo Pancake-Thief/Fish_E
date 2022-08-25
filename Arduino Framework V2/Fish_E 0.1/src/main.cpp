@@ -5,7 +5,6 @@
 void setup() {
   log_i("Version: %s", VERSION);
 
-  
   // put your setup code here, to run once:
 }
 
