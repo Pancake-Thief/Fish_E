@@ -27,6 +27,8 @@ void Fish::TemperatureTask::setup(){
 void Fish::TemperatureTask::loop(){
     //Add code for loop
     while(1){
-        
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // Delay for 1000 milliseconds
+        log_i("Hello from Temperature Task");
+        Serial.println("Hello from Temperature Task");
     }
 }
