@@ -25,7 +25,6 @@ namespace Fish{
         //Loop inside of the Flow Rate Task.
         //Do not call outside of taskFunction()
         void loop();
-
     };
 }
 
