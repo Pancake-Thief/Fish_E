@@ -1,4 +1,6 @@
 #include "flowRateTask.hpp"
+#include "measureFlowRate.hpp"
+
 #include <Arduino.h>
 
 //Init task parameters
@@ -31,7 +33,7 @@ void Fish::FlowRateTask::loop(){
         vTaskDelay(1000 / portTICK_PERIOD_MS);
         log_i("Hello from Flow Rate Task");
         Serial.println("Hello from Flow Rate Task");
-        float On = pulseIn(pinIn, HIGH);
+        float On = pulseIn(pinIn, HIGH); //Replace with function from library
         float Off = pulseIn(pinIn, LOW);
         float Total = On + Off;
         float dutyCycle = (On) / Total;
