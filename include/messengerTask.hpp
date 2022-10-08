@@ -13,9 +13,12 @@ namespace Fish{
         MessengerTask();
 
         //Execution of Messenger Task calls xTaskCreate
-        void start() override;
+        void start(int pinIn) override;
 
     private:
+        //Pin number unique to each task
+        int pinIn = 0;
+
         //Function that is called by FreeRTOS xTaskCreate()
         //Calls setup() and loop()
         static void taskFunction(void* task);
