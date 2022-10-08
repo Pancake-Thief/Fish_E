@@ -13,7 +13,7 @@ namespace Fish{
         DataHandlerTask();
 
         //Execution of Data Handler Task
-        void start() override;
+        void start(int pinIn) override;
 
     private:
         //Function that is called by FreeRTOS xTaskCreate()

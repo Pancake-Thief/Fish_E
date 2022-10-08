@@ -17,7 +17,7 @@ namespace Fish {
             myName(name), myPriority(priority), myStackSize(stackSize){}
 
         //Execution of task
-        virtual void start() = 0; 
+        virtual void start(int pinIn) = 0; 
         
     protected:
         const char *myName;

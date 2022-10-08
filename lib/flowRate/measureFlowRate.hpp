@@ -7,7 +7,7 @@ namespace FlowRate{
     public:
         //Constructor for flow rate metric object
         FlowRateMetric(int pinIn);
-
+        void printTest();
         //Returns the Flow Rate in liters a minute
         float getFlowRate();
     private:

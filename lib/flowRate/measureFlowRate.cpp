@@ -8,6 +8,10 @@ FlowRateMetric::FlowRateMetric(int pinIn)
     : mPinIn(pinIn)
 {}
 
+void FlowRateMetric::printTest(){
+    Serial.println("Test");
+}
+
 float FlowRateMetric::getFlowRate(){
     //Convert duty cycle to liters per minute
     float Frequency = this->getFrequency();

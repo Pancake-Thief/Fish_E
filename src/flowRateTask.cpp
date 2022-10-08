@@ -8,35 +8,41 @@ static const char *name = "flowRateTask";
 static const int priority = 1;
 static const uint32_t stackSize = 4096;
 
-static const int pinIn = 22;
+static int pinIn = 0;
 
-//COnstructor
+//Constructor
 Fish::FlowRateTask::FlowRateTask()
     : Task(name, priority, stackSize){}
 
-void Fish::FlowRateTask::start(){
+void Fish::FlowRateTask::start(int pinIn){
+    pinIn = pinIn;
     xTaskCreate(taskFunction, myName, myStackSize, this, myPriority, nullptr);
 }
 
 void Fish::FlowRateTask::taskFunction(void *task){
-    Fish::FlowRateTask* flowRateTask = static_cast<Fish::FlowRateTask *>(task);
-    flowRateTask->setup();
-    flowRateTask->loop();
+    //Fish::FlowRateTask* flowRateTask = static_cast<Fish::FlowRateTask *>(task);
+    //flowRateTask->setup();
+    //flowRateTask->loop();
+    //Setup temporary solution
+    FlowRate::FlowRateMetric flowRate = FlowRate::FlowRateMetric(pinIn);
+
+    //Loop temp solution
+    while(1){
+        float waterMin = flowRate.getFlowRate();
+        Serial.println(waterMin);
+    }
 }
 
-void Fish::FlowRateTask::setup(){
+/*void Fish::FlowRateTask::setup(){
     //Add code here
+    static FlowRate::FlowRateMetric flowRate = FlowRate::FlowRateMetric(pinIn);
+    
 }
 
 void Fish::FlowRateTask::loop(){
     while(1){
         vTaskDelay(1000 / portTICK_PERIOD_MS);
-        log_i("Hello from Flow Rate Task");
-        Serial.println("Hello from Flow Rate Task");
-        float On = pulseIn(pinIn, HIGH); //Replace with function from library
-        float Off = pulseIn(pinIn, LOW);
-        float Total = On + Off;
-        float dutyCycle = (On) / Total;
+        float dutyCycle = flowRate.getFlowRate();
         Serial.println(dutyCycle);
     }
-}
+}*/

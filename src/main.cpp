@@ -11,8 +11,8 @@ void setup() {
   Fish::TemperatureTask temperatureTask;
   Fish::FlowRateTask flowRateTask;
 
-  flowRateTask.start();
-  temperatureTask.start();
+  flowRateTask.start(22);
+  temperatureTask.start(23);
   // put your setup code here, to run once:
 }
 

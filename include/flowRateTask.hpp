@@ -11,7 +11,7 @@ namespace Fish{
         FlowRateTask();
 
         //Execution of flow rate task calls xTaskCreate
-        void start() override; // Override the virtual function in task class
+        void start(int pinIn) override; // Override the virtual function in task class
 
     private:
         //Function that is called by FreeRTOS xTaskCreate()

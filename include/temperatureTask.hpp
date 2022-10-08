@@ -10,7 +10,7 @@ namespace Fish{
         TemperatureTask();
 
         //Executes the task by calling xTaskCreate
-        void start() override;
+        void start(int pinIn) override;
 
     private:
         //Overarching function that calls setup() and loop()
