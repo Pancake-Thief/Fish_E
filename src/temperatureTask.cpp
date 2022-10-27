@@ -10,7 +10,8 @@ static const uint32_t stackSize = 4096;
 Fish::TemperatureTask::TemperatureTask()
     : Task(name, priority, stackSize){}
 
-void Fish::TemperatureTask::start(){
+void Fish::TemperatureTask::start(int pinIn){
+    
     xTaskCreate(taskFunction, myName, myStackSize, this, myPriority, nullptr);
 }
 

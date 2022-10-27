@@ -5,7 +5,7 @@
 
 //Init task parameters
 static const char *name = "flowRateTask";
-static const int priority = 1;
+static const int priority = tskIDLE_PRIORITY;
 static const uint32_t stackSize = 4096;
 
 static int pinIn = 0;
@@ -14,8 +14,8 @@ static int pinIn = 0;
 Fish::FlowRateTask::FlowRateTask()
     : Task(name, priority, stackSize){}
 
-void Fish::FlowRateTask::start(int pinIn){
-    pinIn = pinIn;
+void Fish::FlowRateTask::start(int pinIn1){
+    pinIn = pinIn1;
     xTaskCreate(taskFunction, myName, myStackSize, this, myPriority, nullptr);
 }
 

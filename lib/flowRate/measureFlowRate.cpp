@@ -22,5 +22,6 @@ float FlowRateMetric::getFlowRate(){
 float FlowRateMetric::getFrequency(){
     float On = pulseIn(this->mPinIn, HIGH);
     float Off = pulseIn(this->mPinIn, LOW);
+    if(On + Off == 0) return 0;
     return 1000000 / (On + Off);
 }
